@@ -67,14 +67,11 @@ def find_students(term):
     for student in student_db:
         if term.lower() in student.name.lower():
             results.append(student)
-
         if not results:
             print("No match found")
-
         else: 
             for student in results:
                 print(f" ID: {student.id}, Name: {student.name}, Enrolled_in: {student.enrolled_in}")
-
 
 def find_teachers(term):
     """Finds teachers by name or speciality."""
@@ -85,16 +82,11 @@ def find_teachers(term):
     for teacher in teacher_db:
         if term.lower() in teacher.name.lower() and term.lower in teacher.speciality.lower():
             results.append(teacher)
-
         if not results:
             print("No match found")
-
         else:
             for teacher in results:
                 print(f" ID: {teacher.id}, Name: {teacher.name}, Speciality: {teacher.speciality}")
-
-
-
 
 # --- Front Desk Functions ---
 def find_student_by_id(student_id):
@@ -135,7 +127,6 @@ def front_desk_lookup(term):
     print(f"\n--- Performing lookup for '{term}' ---")
     find_students(term)
     find_teachers(term)
-
 
     # --- Main Application ---
 def main():
