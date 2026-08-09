@@ -71,6 +71,34 @@ def remove_student(student_id):
     # If found, use the .remove() method on the list to delete it.
     # A list comprehension is a clean way to do this:
     # app_data['students'] = [s for s in app_data['students'] if s['id'] != student_id]
-    pass
+    for student in app_data['students']:
+        if student["id"] == student_id:
+            app_data['students'].remove(student)
+            print(f"Student {student_id} removed")
+            return
+    print(f"Error: Student with ID {student_id} not found.")
     
 # TODO: Implement remove_teacher() and update_student() using the patterns above.
+
+def update_student(student_id, **fields):
+    """Finds a student by ID and updates their data with provided fields."""
+
+    for student in app_data['students']:    
+        if student['id'] == student_id:
+            student.update(fields)
+            print(f"Student {student_id} updated.")
+            return
+    print(f"Error: Student with ID {student_id} not found.")
+
+
+
+def remove_teacher(teacher_id):
+    """Removes a teacher from the data store."""
+
+    for teacher in app_data['teachers']:
+        if teacher["id"] == teacher_id:
+            app_data['teachers'].remove(teacher)
+            print(f"Teacher {teacher_id} removed")
+            return
+    print(f"Error: Teacher with ID {teacher_id} not found.")
+ 
