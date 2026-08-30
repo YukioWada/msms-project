@@ -20,7 +20,19 @@ class ScheduleManager:
             with open(self.data_path, 'r') as f:
                 data = json.load(f)
                 # TODO: Load students, teachers, and courses as before.
-                # 
+                
+                self.students = [
+                    StudentUser(s["id"], s["name"], s["enrolled_course_ids"]) 
+                    for s in data.get("students", [])
+                ]
+                self.teachers = [
+                    TeacherUser(t["id"], t["name"], t["speciality"]) 
+                    for t in data.get("teachers", [])
+                ]
+                self.courses = [
+                    Course(c["id"], c["name"], c["instrument"], c["teacher_id"], c["enrolled_student_ids"], c.get("lessons", [])) 
+                    for c in data.get("courses", [])
+                ]
 
                 # TODO: Correctly load the attendance log.
                 # Use .get() with a default empty list to prevent errors if the key doesn't exist.
