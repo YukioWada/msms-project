@@ -90,3 +90,27 @@ class ScheduleManager:
             if course.id == course_id:
                 return course
         return None
+
+    def get_lessons_by_day(self, day):
+        results = []
+        for course in self.courses:
+            for lesson in course.lessons:
+                if lesson.get("day", "").lower() == day.lower():
+                    results.append((
+                        course.name,
+                        lesson.get("time"),
+                        lesson.get("room")
+                    ))
+        return results
+
+    def switch_student_course(self, student_id, from_course_id, to_course_id):
+        student = self.find_student_by_id(student_id)
+        from_course = self.find_course_by_id(from_course_id)
+        to_course = self.find_course_by_id(to_course_id)
+
+        if student and from_course and to_course and from_course_id in student.enrolled_course_ids:
+            student.enrolled_course_ids.remove(from_course_id)
+            student.enrolled_course_ids.append(to_course_id)
+            self._save_data()
+            return True
+        return False
