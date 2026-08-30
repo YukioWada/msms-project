@@ -62,3 +62,36 @@ Data Persistence: Data is saved automatically and immediately following any inpu
 Error Detection: If a student ID is not found, an informative error message is displayed without crashing the app by using except.
 
 Prepared Test Data: msms.json contains initial sample data to support immediate testing of card printing and attendance check in functionality.
+
+
+# Music School Management System (MSMS) - PST3
+
+## Overview
+This is part 3 of the Music School Management System built as part of the FIT1056 project. This stage refactors the previous application into a professional Object-Oriented Programming (OOP) architecture.  
+
+## Features / Project Structure
+app/user.py: Defines the base User class for system users. 
+
+app/student.py: Defines the StudentUser class inheriting from User. 
+
+app/teacher.py: Defines the TeacherUser class and the Course class.
+
+app/schedule.py: Houses the core ScheduleManager controller class, managing the application's business logic, state (attendance_log), and data persistence (_load_data and _save_data).  
+
+data/msms.json: Stores the application's core data (students, teachers, courses, and attendance).
+
+main.py: Acts as the View layer responsible for user interaction and menu routing, delegating operations to the ScheduleManager.  
+
+## How to Run
+1. Open your terminal in the project folder.
+2. Run the application with Python:
+   ```bash
+   python main.py
+
+## Design Choices & Assumptions
+Object-Oriented Architecture: Core business entities are defined as Python classes to make the code easier to maintain and scale compared to previous one.
+
+Data Persistence: Data is automatically loaded from and saved back to data/msms.json upon performing updates or check-ins.
+
+
+
