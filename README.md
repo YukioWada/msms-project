@@ -93,5 +93,36 @@ Object-Oriented Architecture: Core business entities are defined as Python class
 
 Data Persistence: Data is automatically loaded from and saved back to data/msms.json upon performing updates or check-ins.
 
+# Music School Management System (MSMS) - PST4
+
+## Overview
+This is part 4 of the Music School Management System built as part of the FIT1056 project. This stage replaces the previous command-line menu with a modern Graphical User Interface (GUI) built using Streamlit.
+
+## Features / Project Structure
+app/: Houses all core OOP backend files (`schedule.py`, `user.py`, `student.py`, `teacher.py`) created in PST3.
+
+data/msms.json: Include all core system data (students, teachers, courses, and attendance).
+
+gui/__init__.py: Package initialization file for the GUI module.
+
+gui/main_dashboard.py: Sets up the Streamlit page layout, manages the sidebar navigation menu, and handles session state persistence.
+
+gui/student_pages.py: Contains UI components and forms for student search and registration.
+
+gui/roster_pages.py: Displays the daily class schedule and provides interactive check-in controls for students.
+
+main.py: Refactored entry point that launches the Streamlit application interface.
+
+## How to Run
+## How to Run
+1. Open your terminal in the project folder.
+2. Run the application with Python:
+   ```powershell
+   streamlit run main.py
 
 
+Separation of Logic and UI: The GUI layer in gui/ only handles display and user interactions, while all logic and data persistence are strictly managed by ScheduleManager in app/schedule.py.
+
+Session State Persistence: It uses Streamlit’s st.session_state to keep the ScheduleManager instance when moving between pages, so the data is not lost or reloaded each time.
+
+Immediate Data Persistence: Any action performed via the GUI (such as registering a new student or checking in for a class) instantly updates and saves back to data/msms.json.
