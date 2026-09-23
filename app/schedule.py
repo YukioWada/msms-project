@@ -114,3 +114,17 @@ class ScheduleManager:
             self._save_data()
             return True
         return False
+
+    def register_new_student(self, name, instrument):
+        """Registers a new student and saves data."""
+        # 簡易的なID生成 (例: S001, S002...)
+        new_id = f"S{len(self.students) + 1:03d}"
+        
+        # StudentUser インスタンスの作成 (StudentUserの引数設定に併せて適宜調整)
+        new_student = StudentUser(new_id, name, [])
+        self.students.append(new_student)
+        
+        # データの保存
+        self._save_data()
+        
+        return new_student
