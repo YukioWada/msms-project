@@ -114,7 +114,6 @@ gui/roster_pages.py: Displays the daily class schedule and provides interactive 
 main.py: Refactored entry point that launches the Streamlit application interface.
 
 ## How to Run
-## How to Run
 1. Open your terminal in the project folder.
 2. Run the application with Python:
    ```powershell
