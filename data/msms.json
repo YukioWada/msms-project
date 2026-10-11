@@ -1,0 +1,195 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "Alice Johnson",
+            "enrolled_course_ids": [
+                103,
+                102
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Bob Williams",
+            "enrolled_course_ids": [
+                102
+            ]
+        },
+        {
+            "id": "S003",
+            "name": "yukio",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S004",
+            "name": "Yukio",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S005",
+            "name": "Yukio",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S006",
+            "name": "Yukio",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S007",
+            "name": "Haruki",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S008",
+            "name": "Haruki",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S009",
+            "name": "Bob",
+            "enrolled_course_ids": []
+        },
+        {
+            "id": "S010",
+            "name": "jihih",
+            "enrolled_course_ids": []
+        }
+    ],
+    "teachers": [
+        {
+            "id": 1,
+            "name": "Dr. Evelyn Keys",
+            "speciality": "Piano"
+        },
+        {
+            "id": 2,
+            "name": "Mr. David Fret",
+            "speciality": "Guitar"
+        }
+    ],
+    "courses": [
+        {
+            "id": 101,
+            "name": "Beginner Piano",
+            "instrument": "Piano",
+            "teacher_id": 1,
+            "enrolled_student_ids": [
+                1
+            ],
+            "lessons": [
+                {
+                    "lesson_id": 1,
+                    "day": "Monday",
+                    "start_time": "16:00",
+                    "room": "Room A"
+                },
+                {
+                    "lesson_id": 2,
+                    "day": "Wednesday",
+                    "start_time": "16:00",
+                    "room": "Room A"
+                }
+            ]
+        },
+        {
+            "id": 102,
+            "name": "Acoustic Guitar Fundamentals",
+            "instrument": "Guitar",
+            "teacher_id": 2,
+            "enrolled_student_ids": [
+                2
+            ],
+            "lessons": [
+                {
+                    "lesson_id": 3,
+                    "day": "Tuesday",
+                    "start_time": "17:00",
+                    "room": "Room C"
+                }
+            ]
+        },
+        {
+            "id": 103,
+            "name": "Intermediate Piano",
+            "instrument": "Piano",
+            "teacher_id": 1,
+            "enrolled_student_ids": [
+                1
+            ],
+            "lessons": []
+        }
+    ],
+    "attendance": [
+        {
+            "student_id": 1,
+            "course_id": 101,
+            "timestamp": "2025-07-14T15:58:30.123456"
+        },
+        {
+            "student_id": 2,
+            "course_id": 102,
+            "timestamp": "2025-07-14T16:02:45.654321"
+        },
+        {
+            "student_id": "S003",
+            "course_id": 102,
+            "timestamp": "2026-09-23T15:22:37.609277"
+        },
+        {
+            "student_id": "S003",
+            "course_id": 102,
+            "timestamp": "2026-09-23T15:22:41.675361"
+        },
+        {
+            "student_id": "S005",
+            "course_id": 102,
+            "timestamp": "2026-09-23T15:41:19.323475"
+        },
+        {
+            "student_id": "S005",
+            "course_id": 102,
+            "timestamp": "2026-09-23T15:41:21.525791"
+        },
+        {
+            "student_id": "S005",
+            "course_id": 102,
+            "timestamp": "2026-09-23T16:05:47.714509"
+        },
+        {
+            "student_id": 1,
+            "course_id": 101,
+            "timestamp": "2026-10-04T21:11:38.137510"
+        },
+        {
+            "student_id": "S003",
+            "course_id": 102,
+            "timestamp": "2026-10-09T15:13:10.550942"
+        },
+        {
+            "student_id": "S006",
+            "course_id": 101,
+            "timestamp": "2026-10-09T15:36:21.967040"
+        },
+        {
+            "student_id": "S006",
+            "course_id": 102,
+            "timestamp": "2026-10-09T15:36:24.005180"
+        },
+        {
+            "student_id": "S006",
+            "course_id": 103,
+            "timestamp": "2026-10-09T15:36:26.313415"
+        },
+        {
+            "student_id": "S008",
+            "course_id": 102,
+            "timestamp": "2026-10-09T15:42:16.608205"
+        },
+        {
+            "student_id": 1,
+            "course_id": 101,
+            "timestamp": "2026-10-09T15:55:29.992528"
+        }
+    ]
+}

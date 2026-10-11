@@ -9,7 +9,14 @@ def show_roster_page(manager):
     # --- View Roster Section (remains the same) ---
     day = st.selectbox("Select a day", ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"])
     # ... (code to display the dataframe) ...
-    
+    lessons = manager.get_lessons_by_day(day)
+
+    df = pd.DataFrame(
+        lessons,
+        columns=["Course", "Time", "Room"]
+    )
+
+    st.dataframe(df)
     # --- Student Check-in Section (now works correctly) ---
     st.subheader("Student Check-in")
     with st.form("check_in_form"):
