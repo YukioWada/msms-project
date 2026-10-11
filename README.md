@@ -125,3 +125,52 @@ Separation of Logic and UI: The GUI layer in gui/ only handles display and user 
 Session State Persistence: It uses Streamlit’s st.session_state to keep the ScheduleManager instance when moving between pages, so the data is not lost or reloaded each time.
 
 Immediate Data Persistence: Any action performed via the GUI (such as registering a new student or checking in for a class) instantly updates and saves back to data/msms.json.
+
+# Music School Management System (MSMS) - PST5
+
+## Overview
+This is part 5 of the Music School Management System built as part of the FIT1056 project. This final stage adds financial tracking, CSV report exporting, and a suite of automated unit tests using pytest to make sure the core logic is reliable and correct.
+
+## Features / Project Structure
+app/schedule.py: The ScheduleManager class now manages a new finance_log. It includes record_payment (records a payment after checking the student exists), get_payment_history (returns all payments for one student), export_report (writes finance or attendance data to a CSV file), and create_course (creates a new course and saves it).
+
+app/admin_utils.py: Created as specified in the new directory structure, as a place for future logging and backup utilities.
+
+data/msms.json: Now also stores the finance log under the "finance" key, alongside students, teachers, courses, and attendance.
+
+gui/finance_pages.py: Contains show_finance_page, which has two sections: a form for recording a new payment and a section for viewing a student's payment history as a table.
+
+gui/main_dashboard.py: The "Payments" page in the sidebar now calls show_finance_page instead of a stub.
+
+tests/__init__.py: Package initialization file for the tests module.
+
+tests/test_schedule_manager.py: Automated unit tests for creating a course, recording a payment and checking its history, and checking that a student with no payments returns an empty history.
+
+## How to Run
+1. Open your terminal in the project folder.
+2. Run the application with Streamlit:
+```powershell
+   streamlit run main.py
+```
+
+## How to Test
+1. Install pytest (only needed once):
+```powershell
+   pip install pytest
+```
+2. Run the tests from the project folder:
+```powershell
+   pytest
+```
+   If a "No module named 'app'" error appears, run `python -m pytest` instead.
+3. All 3 tests should pass.
+
+## Design Choices & Assumptions
+
+Student Validation: record_payment checks that the student exists before saving a payment, so payments cannot be recorded for an invalid student ID.
+
+Finance Data Persistence: Payments are stored as a list of dictionaries in finance_log and saved to data/msms.json immediately, in the same way as the attendance log.
+
+Isolated Tests: Each test uses a pytest fixture that creates a fresh ScheduleManager with a separate test_data.json file, so the tests never change the real data in data/msms.json and do not affect each other.
+
+Arrange, Act, Assert: Each test function follows the Arrange, Act, Assert pattern and tests one specific piece of logic.
