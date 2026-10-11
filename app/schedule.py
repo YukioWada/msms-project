@@ -129,6 +129,18 @@ class ScheduleManager:
         
         return new_student
 
+    def create_course(self, name, instrument, teacher_id):
+        """Creates a new course and saves data."""
+        
+        new_id = f"C{len(self.courses) + 1:03d}"
+
+        new_course = Course(new_id, name, instrument, teacher_id, [], [])
+        self.courses.append(new_course)
+
+        self._save_data()
+
+        return new_course
+
     def record_payment(self, student_id, amount, method):
         """Adds a payment record to the finance log."""
         # TODO: Find the student to ensure they exist.

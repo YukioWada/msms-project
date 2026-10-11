@@ -23,9 +23,10 @@ def test_create_course(fresh_manager):
 
 def test_record_payment_and_history(fresh_manager):
     # ARRANGE: Add a dummy student to the manager for the test.
+    student = fresh_manager.register_new_student("Test Student")
+    student_id_to_test = student.id
     # This test verifies the core financial logic you added in Fragment 5.1.
     # fresh_manager.students.append(...)
-    student_id_to_test = 1
 
     # ACT: Record a payment for that student.
     fresh_manager.record_payment(student_id_to_test, 100.00, "Credit Card")
@@ -39,9 +40,7 @@ def test_record_payment_and_history(fresh_manager):
     assert history[0]['method'] == "Credit Card"
     
 def test_get_payment_history_no_results(fresh_manager):
-    # TODO: Implement a test that checks if get_payment_history
-    # returns an empty list for a student with no payments.
-    pass
-
-# tests/test_schedule_manager.py
-# ... (fixture setup) ...
+    #ACT
+    history = fresh_manager.get_payment_history(999)
+    #ASSERT
+    assert history == []
