@@ -172,5 +172,3 @@ class ScheduleManager:
             writer = csv.DictWriter(f, fieldnames=headers)
             writer.writeheader()
             writer.writerows(data_to_export)
-
-       
