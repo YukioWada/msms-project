@@ -134,7 +134,7 @@ This is part 5 of the Music School Management System built as part of the FIT105
 ## Features / Project Structure
 app/schedule.py: The ScheduleManager class now manages a new finance_log. It includes record_payment (records a payment after checking the student exists), get_payment_history (returns all payments for one student), export_report (writes finance or attendance data to a CSV file), and create_course (creates a new course and saves it).
 
-app/admin_utils.py: Created as specified in the new directory structure, as a place for future logging and backup utilities.
+app/admin_utils.py: Contains init_logger, which sets up Python's logging module to write events to msms.log, and backup_data, which copies data/msms.json into data/backups/ with a timestamp in the file name.
 
 data/msms.json: Now also stores the finance log under the "finance" key, alongside students, teachers, courses, and attendance.
 
